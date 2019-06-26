@@ -7,6 +7,8 @@ assignees: 'bartervg'
 
 ---
 
+- [ ] [I've checked that this issue hasn't been reported before](https://github.com/bartervg/barter.vg/issues).
+
 ## Background
 <!-- Provide background to this issue, if necessary. -->
 
