@@ -1,46 +1,86 @@
-window.addEventListener("load", () => {
-    const copyElem = document.getElementById("copyToClip");
-    if (copyElem) {
-        copyElem.addEventListener("click", copyToClipboard);
+function copyToClipboard() {
+    let a = document.getElementById("collection_export");
+    a.select();
+    document.execCommand("Copy");
+    document.getElementById("copyToClip").innerHTML = "Copied export to clipboard \u2611";
+}
+
+function selectAllOffers(event) {
+    let {target} = event;
+    let side = target.id.includes("_from") ? "from" : "to";
+    let elems = document.getElementsByClassName(`checked_${side}`);
+
+    for (let elem of elems) {
+        elem.checked = target.checked;
+    }
+}
+
+function selectAll(event) {
+    let input = [...document.querySelectorAll(`input[name="${event.target.dataset.checkboxName}"]`)];
+    let count = input.reduce((a, b) => {
+        b.checked = event.target.checked;
+        return b.checked ? a + 1 : a;
+    }, 0);
+
+    let elem = document.querySelector("#selectCount");
+    if (elem) {
+        elem.innerHTML = count;
+    }
+}
+
+function updateCheckedCount(event) {
+    let elem = document.querySelector("#selectCount");
+    if (elem) {
+        let count = parseInt(elem.innerHTML, 10);
+        elem.innerHTML = event.target.checked ? count + 1 : count - 1;
+    }
+}
+
+function init() {
+    let copyToClip = document.getElementById("copyToClip");
+    if (copyToClip) {
+        copyToClip.addEventListener("click", copyToClipboard);
     }
 
-    const selectToggles = document.questSelectorAll("[id=selectToggle], [id=selectToggle2]");
-    for (const toggle of selectToggles) {
+    let selectToggles = document.questSelectorAll("[id=selectToggle], [id=selectToggle2]");
+    for (let toggle of selectToggles) {
         toggle.addEventListener("click", selectAll);
     }
     
-    const selectAllToggles = document.questSelectorAll("[id=selectToggle_to], [id=selectToggle_from]");
-    for (const toggle of selectAllToggles) {
+    let selectAllToggles = document.questSelectorAll("[id=selectToggle_to], [id=selectToggle_from]");
+    for (let toggle of selectAllToggles) {
         toggle.addEventListener("click", selectAllOffers);
     }
     
-    const formSubmitters = document.questSelectorAll(".onChangeSubmit");
-    for (const elem of formSubmitters) {
+    let formSubmitters = document.questSelectorAll(".onChangeSubmit");
+    for (let elem of formSubmitters) {
         elem.addEventListener("change", event => event.target.form.submit());
     }
 
-    const checkBoxes = document.questSelectorAll("[type=checkbox][name='add[]'], [type=checkbox][name='edit[]']");
-    for (const checkbox of checkBoxes) {
+    let checkBoxes = document.questSelectorAll("[type=checkbox][name='add[]'], [type=checkbox][name='edit[]']");
+    for (let checkbox of checkBoxes) {
         checkbox.addEventListener("click", updateCheckedCount);
     }
 
-    ["edit[]", "add[]", "add_to_offer_1[]", "add_to_offer_2[]"].forEach(function(name) {
-        const key = `${name}lastChecked`;
+    ["edit[]", "add[]", "add_to_offer_1[]", "add_to_offer_2[]"].forEach((name) => {
+        let key = `${name}lastChecked`;
         window[key] = null;
-        document.querySelectorAll(`input[name="${name}"]`).forEach(function(a, f, e) {
-            a.addEventListener("click", function(c) {
-                const g = window[key];
+        document.querySelectorAll(`input[name="${name}"]`).forEach((a, f, e) => {
+            a.addEventListener("click", (c) => {
+                let g = window[key];
                 window[key] = f;
+
                 if (null !== g && c.shiftKey) {
-                    const h = e[g].checked;
-                    const j = Array.prototype.slice.call(e, Math.min(f, g), Math.max(f, g) + 1);
-                    j.forEach(function(elem) {
+                    let h = e[g].checked;
+                    let j = [...e].slice(Math.min(f, g), Math.max(f, g) + 1);
+                    j.forEach((elem) => {
                         elem.checked = h;
                     });
-                    const elem = document.querySelector("#selectCount");
+
+                    let elem = document.querySelector("#selectCount");
                     if (elem) {
-                        const k = parseInt(elem.innerHTML, 10);
-                        const d = j.length - 2;
+                        let k = parseInt(elem.innerHTML, 10);
+                        let d = j.length - 2;
                         elem.innerHTML = h ? k + d : k - d;
                     }
                 }
@@ -48,41 +88,5 @@ window.addEventListener("load", () => {
         });
     });
 }
-);
-function copyToClipboard() {
-    const a = document.getElementById("collection_export");
-    a.select();
-    document.execCommand("Copy");
-    document.getElementById("copyToClip").innerHTML = "Copied export to clipboard \u2611";
-}
 
-function selectAllOffers(event) {
-    const {target} = event;
-    const side = target.id.includes("_from") ? "from" : "to";
-    const elems = document.getElementsByClassName(`checked_${side}`);
-
-    for (const elem of elems) {
-        elem.checked = target.checked;
-    }
-}
-
-function selectAll(event) {
-    const input = [...document.querySelectorAll(`input[name="${event.target.dataset.checkboxName}"]`)];
-    const count = input.reduce((a, b) => {
-        b.checked = event.target.checked;
-        return b.checked ? a + 1 : a;
-    }, 0);
-
-    const elem = document.querySelector("#selectCount");
-    if (elem) {
-        elem.innerHTML = count;
-    }
-}
-
-function updateCheckedCount(event) {
-    const elem = document.querySelector("#selectCount");
-    if (elem) {
-        const count = parseInt(elem.innerHTML, 10);
-        elem.innerHTML = event.target.checked ? count + 1 : count - 1;
-    }
-}
+window.addEventListener("load", init);
