@@ -42,22 +42,22 @@ function init() {
         copyToClip.addEventListener("click", copyToClipboard);
     }
 
-    let selectToggles = document.questSelectorAll("[id=selectToggle], [id=selectToggle2]");
+    let selectToggles = document.querySelectorAll("[id=selectToggle], [id=selectToggle2]");
     for (let toggle of selectToggles) {
         toggle.addEventListener("click", selectAll);
     }
     
-    let selectAllToggles = document.questSelectorAll("[id=selectToggle_to], [id=selectToggle_from]");
+    let selectAllToggles = document.querySelectorAll("[id=selectToggle_to], [id=selectToggle_from]");
     for (let toggle of selectAllToggles) {
         toggle.addEventListener("click", selectAllOffers);
     }
     
-    let formSubmitters = document.questSelectorAll(".onChangeSubmit");
+    let formSubmitters = document.querySelectorAll(".onChangeSubmit");
     for (let elem of formSubmitters) {
         elem.addEventListener("change", event => event.target.form.submit());
     }
 
-    let checkBoxes = document.questSelectorAll("[type=checkbox][name='add[]'], [type=checkbox][name='edit[]']");
+    let checkBoxes = document.querySelectorAll("[type=checkbox][name='add[]'], [type=checkbox][name='edit[]']");
     for (let checkbox of checkBoxes) {
         checkbox.addEventListener("click", updateCheckedCount);
     }
