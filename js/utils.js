@@ -1,6 +1,6 @@
 function copyToClipboard() {
-    let a = document.getElementById("collection_export");
-    a.select();
+    let elem = document.getElementById("collection_export");
+    elem.select();
     document.execCommand("Copy");
     document.getElementById("copyToClip").innerHTML = "Copied export to clipboard \u2611";
 }
