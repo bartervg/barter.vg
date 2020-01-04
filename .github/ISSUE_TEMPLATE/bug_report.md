@@ -13,8 +13,7 @@ assignees: ''
 **Steps to reproduce the bug**
 1. [*Go to this URL*]
 2. [*Click on this element*]
-3. [*Scroll down to the second header*]
-4. [*View the error in this section*]
+3. [*View the error in this section*]
 
 **Expected behavior**
 
