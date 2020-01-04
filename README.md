@@ -2,7 +2,7 @@
 [Barter.vg](https://barter.vg/) is a Web site that helps to match and organize PC video game trades, usually via game redemption codes or gift copies. This GitHub repository was set up to help track and hold discussion on site bugs, enhancements, and other issues.
 
 ## Reporting issues
-**Click to [report a bug](https://github.com/bartervg/barter.vg/issues/new?template=bug.md) or [open a feature request](https://github.com/bartervg/barter.vg/issues/new?template=feature_request.md) using templates.**
+**Click to [report a bug](https://github.com/bartervg/barter.vg/issues/new?template=bug_report.md) or [open a feature request](https://github.com/bartervg/barter.vg/issues/new?template=feature_request.md) using templates.**
 
 Thank you for helping to make the site better! Please keep the following in mind:
 
