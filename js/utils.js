@@ -1,14 +1,14 @@
 function copyToClipboard() {
-    let elem = document.getElementById("collection_export");
+    let elem = document.getElementById("collection-export");
     elem.select();
     document.execCommand("Copy");
-    document.getElementById("copyToClip").innerHTML = "Copied export to clipboard \u2611";
+    document.getElementById("copy-to-clipboard").innerHTML = "Copied export to clipboard \u2611";
 }
 
 function selectAllOffers(event) {
     let {target} = event;
-    let side = target.id.includes("_from") ? "from" : "to";
-    let elems = document.getElementsByClassName(`checked_${side}`);
+    let side = target.id.includes("-from") ? "from" : "to";
+    let elems = document.getElementsByClassName(`checked-${side}`);
 
     for (let elem of elems) {
         elem.checked = target.checked;
@@ -22,14 +22,14 @@ function selectAll(event) {
         return b.checked ? a + 1 : a;
     }, 0);
 
-    let elem = document.querySelector("#selectCount");
+    let elem = document.querySelector("#select-count");
     if (elem) {
         elem.innerHTML = count;
     }
 }
 
 function updateCheckedCount(event) {
-    let elem = document.querySelector("#selectCount");
+    let elem = document.querySelector("#select-count");
     if (elem) {
         let count = parseInt(elem.innerHTML, 10);
         elem.innerHTML = event.target.checked ? count + 1 : count - 1;
@@ -37,22 +37,22 @@ function updateCheckedCount(event) {
 }
 
 function init() {
-    let copyToClip = document.getElementById("copyToClip");
+    let copyToClip = document.getElementById("copy-to-clipoard");
     if (copyToClip) {
         copyToClip.addEventListener("click", copyToClipboard);
     }
 
-    let selectToggles = document.querySelectorAll("[id=selectToggle], [id=selectToggle2]");
+    let selectToggles = document.querySelectorAll("[id=select-toggle], [id=select-toggle-2]");
     for (let toggle of selectToggles) {
         toggle.addEventListener("click", selectAll);
     }
     
-    let selectAllToggles = document.querySelectorAll("[id=selectToggle_to], [id=selectToggle_from]");
+    let selectAllToggles = document.querySelectorAll("[id=select-toggle-to], [id=select-toggle-from]");
     for (let toggle of selectAllToggles) {
         toggle.addEventListener("click", selectAllOffers);
     }
     
-    let formSubmitters = document.querySelectorAll(".onChangeSubmit");
+    let formSubmitters = document.querySelectorAll(".on-change--submit");
     for (let elem of formSubmitters) {
         elem.addEventListener("change", event => event.target.form.submit());
     }
@@ -62,7 +62,7 @@ function init() {
         checkbox.addEventListener("click", updateCheckedCount);
     }
 
-    ["edit[]", "add[]", "add_to_offer_1[]", "add_to_offer_2[]"].forEach((name) => {
+    ["edit[]", "add[]", "add-from[]", "add-to[]"].forEach((name) => {
         let key = `${name}lastChecked`;
         window[key] = null;
         document.querySelectorAll(`input[name="${name}"]`).forEach((a, f, e) => {
@@ -77,7 +77,7 @@ function init() {
                         elem.checked = h;
                     });
 
-                    let elem = document.querySelector("#selectCount");
+                    let elem = document.querySelector("#select-count");
                     if (elem) {
                         let k = parseInt(elem.innerHTML, 10);
                         let d = j.length - 2;
