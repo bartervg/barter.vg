@@ -9,3 +9,6 @@ Thank you for helping to make the site better! Please keep the following in mind
 1. Include background on your issue, if applicable. If this is a bug, what are some real-life cases where this issue occurs? If this is a feature request, what are some situations that would be enhanced by your new feature?
 2. If you're reporting a bug, make sure you include detailed steps so your issue can be reproduced. Also include a description of the expected and actual results.
 3. Search for your issue before posting. Duplicates may be closed.
+
+## License
+This project is licensed under the terms of the MIT license.
