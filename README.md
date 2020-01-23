@@ -11,4 +11,4 @@ Thank you for helping to make the site better! Please keep the following in mind
 3. Search for your issue before posting. Duplicates may be closed.
 
 ## License
-This project is licensed under the terms of the MIT license.
+This project is licensed under the terms of the MIT license. Data and files not included in this repo may have different licenses.
