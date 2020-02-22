@@ -7,11 +7,9 @@ assignees: ''
 
 ---
 
-**Describe the problem that this feature would improve**
-[*Example: I'm annoyed when this happens (or doesn't happen)...*]
+## Describe the problem that this feature would improve
+[*Example: I'm forced repeat the same tedious actions when this happens (or doesn't happen)...*]
 
-**Describe the solution you'd like**
+## Describe a solution you'd like
 
-
-**Examples of similar solutions**
-
+### Examples of similar solutions
