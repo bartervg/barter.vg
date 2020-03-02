@@ -3,7 +3,7 @@ All information that you post to Barter.vg will be visible to anyone viewing the
 You can edit and remove your game collections, but not offers that have been accepted or declined. You can initiate corrections to offers by mutual consent (sender and receiver agree to changes), or through a mediator during the dispute process.
 
 **Personal information collected**  
-The site collects public Steam profiles and user-provided data on game collections in order to share them on the site and through APIs. When logged in, you can access this information at https://barter.vg/u/my/data/
+The site collects public Steam profiles and user-provided data on game collections in order to share them on the site and through APIs. When logged in, you can access this information at https://barter.vg/u/my/data/.
 The default assumption is that, other than login credentials, users are providing information intended for others to view and process. Therefore, do not post anything that you or others wish to remain private.
 
 **Technical information collected**  
