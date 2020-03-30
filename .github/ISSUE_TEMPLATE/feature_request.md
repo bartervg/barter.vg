@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-# What's the problem that this feature alleviates?
+# What problem does this feature address?
 [*Example: I'm forced repeat the same tedious actions when this happens (or doesn't happen)...*]
 
 ## Describe a solution
