@@ -1,2 +1,1 @@
-
 javascript:var i=window.location.href.split('/');var app=0;if(i[2] == "store.steampowered.com") {app=i[4]} else if(i[3] == "market") {app=i[6].substr(0,i[6].indexOf("-"))};window.location="https://steamcommunity.com/market/search?appid=753&category_753_Game%5B%5D=tag_app_"+app+'&q=emoticon'
