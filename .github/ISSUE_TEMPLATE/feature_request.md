@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 # What problem does this feature address?
-[*Example: I'm forced repeat the same tedious actions when this happens (or doesn't happen)...*]
+[*Example: I'm forced to repeat the same tedious actions when this happens (or doesn't happen)...*]
 
 ## Describe a solution
 
