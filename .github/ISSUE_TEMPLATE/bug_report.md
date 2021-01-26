@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-## Describe the bug
+# Describe the bug
 
 
 ## Steps to reproduce the bug
@@ -18,13 +18,7 @@ assignees: ''
 ## Expected behavior
 
 
-## Screenshots (if helpful)
+### Screenshots
 
 
-### Device (if applicable)
- - Type: [*Desktop, Samsung Galaxy S10*]
- - OS: [*Windows 10, Android 10, iOS 13*]
- - Browser: [*Chrome, Safari*]
- - Version: [*79, 13*]
-
-### Additional context
+### Additional context, device information (OS & Browser) if applicable 
