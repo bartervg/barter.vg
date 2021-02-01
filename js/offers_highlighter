@@ -1,0 +1,17 @@
+[...document.querySelectorAll("[data-appid]")].forEach(elem => {
+
+    elem.addEventListener("mouseenter", (event) => {
+        let appid = elem.dataset.appid;
+        [...document.querySelectorAll("[data-appid=\"" + appid + "\"]")].forEach(e => {
+            e.style.fontWeight = "bold";
+        });
+    });
+
+    elem.addEventListener("mouseleave", (event) => {
+        let appid = elem.dataset.appid;
+        [...document.querySelectorAll("[data-appid=\"" + appid + "\"]")].forEach(e => {
+            e.style.fontWeight = "normal";
+        });
+    });
+    
+});

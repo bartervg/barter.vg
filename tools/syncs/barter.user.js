@@ -8,6 +8,8 @@
 // @grant       GM_xmlhttpRequest
 // @require     http://code.jquery.com/jquery-3.3.1.min.js
 // @run-at      document-start
+// @updateURL   https://gist.github.com/nikop/214811ec3ad47d09dfd263c2ca81cf06/raw/barter.user.js
+// @downloadURL https://gist.github.com/nikop/214811ec3ad47d09dfd263c2ca81cf06/raw/barter.user.js
 // ==/UserScript==
 
 (function () {
