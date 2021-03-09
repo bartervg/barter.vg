@@ -4,10 +4,10 @@
 // @include     https://barter.vg/u/*/l*
 // @include     https://barter.vg/u/*/b*
 // @include     https://barter.vg/u/*/w*
-// @version     6
+// @version     7
 // @grant       GM_xmlhttpRequest
 // @require     http://code.jquery.com/jquery-3.3.1.min.js
-// @run-at      document-start
+// @run-at      document-body
 // @updateURL   https://gist.github.com/nikop/214811ec3ad47d09dfd263c2ca81cf06/raw/barter.user.js
 // @downloadURL https://gist.github.com/nikop/214811ec3ad47d09dfd263c2ca81cf06/raw/barter.user.js
 // ==/UserScript==
@@ -40,6 +40,7 @@
         syncer.append(btnAll);
 
         btnAppID.click(function () {
+            console.log("btnAppID clicked");
 
             btnAppID.attr('disabled', true);
 
@@ -48,14 +49,15 @@
                 var appidsOwned = jsonFile.rgOwnedApps.join(",");
 
                 var form = $('<form>', {
-                    'action': 'e',
+                    'action': 'https://barter.vg/u/my/l/e/#modified',
                     'method': 'POST',
                 });
 
                 form.append($('<input>', {'type': 'hidden', 'name': 'action', 'value': 'Edit'}));
                 form.append($('<input>', {'type': 'hidden', 'name': 'change_attempted', 'value': '1'}));
                 form.append($('<input>', {'type': 'hidden', 'name': 'add_from', 'value': 'AppIDs'}));
-                form.append($('<input>', {'type': 'hidden', 'name': 'bulk_AppIDs', 'value': appidsOwned}));
+                form.append($('<input>', {'type': 'hidden', 'name': 'bulk_IDs', 'value': appidsOwned}));
+                form.append($('<input>', {'type': 'hidden', 'name': 'userdata', 'value': 'on'}));
 
                 $('body').append(form);
 
@@ -66,6 +68,7 @@
         });
 
         btnAll.click(function () {
+            console.log("btnAll clicked");
 
             btnAll.attr('disabled', true);
 
@@ -74,7 +77,7 @@
                 var allOwned = "app/" + jsonFile.rgOwnedApps.join(",app/") + ",sub/" + jsonFile.rgOwnedPackages.join(",sub/");
 
                 var form = $('<form>', {
-                    'action': 'e',
+                    'action': 'https://barter.vg/u/my/l/e/#modified',
                     'method': 'POST',
                 });
 
@@ -82,6 +85,7 @@
                 form.append($('<input>', {'type': 'hidden', 'name': 'change_attempted', 'value': '1'}));
                 form.append($('<input>', {'type': 'hidden', 'name': 'add_from', 'value': 'IDs'}));
                 form.append($('<input>', {'type': 'hidden', 'name': 'bulk_IDs', 'value': allOwned}));
+                form.append($('<input>', {'type': 'hidden', 'name': 'userdata', 'value': 'on'}));
 
                 $('body').append(form);
 
@@ -108,14 +112,15 @@
                 var appidsOwned = Object.keys(jsonFile.rgIgnoredApps).map(a => parseInt(a, 10));
 
                 var form = $('<form>', {
-                    'action': 'e',
+                    'action': 'https://barter.vg/u/my/b/e/#modified',
                     'method': 'POST',
                 });
 
                 form.append($('<input>', {'type': 'hidden', 'name': 'action', 'value': 'Edit'}));
                 form.append($('<input>', {'type': 'hidden', 'name': 'change_attempted', 'value': '1'}));
                 form.append($('<input>', {'type': 'hidden', 'name': 'add_from', 'value': 'AppIDs'}));
-                form.append($('<input>', {'type': 'hidden', 'name': 'bulk_AppIDs', 'value': appidsOwned}));
+                form.append($('<input>', {'type': 'hidden', 'name': 'bulk_IDs', 'value': appidsOwned}));
+                form.append($('<input>', {'type': 'hidden', 'name': 'userdata', 'value': 'on'}));
 
                 $('body').append(form);
 
@@ -142,14 +147,15 @@
                 var appidsOwned = jsonFile.rgWishlist.join(",");
 
                 var form = $('<form>', {
-                    'action': 'e',
+                    'action': 'https://barter.vg/u/my/w/e/#modified',
                     'method': 'POST',
                 });
 
                 form.append($('<input>', {'type': 'hidden', 'name': 'action', 'value': 'Edit'}));
                 form.append($('<input>', {'type': 'hidden', 'name': 'change_attempted', 'value': '1'}));
                 form.append($('<input>', {'type': 'hidden', 'name': 'add_from', 'value': 'AppIDs'}));
-                form.append($('<input>', {'type': 'hidden', 'name': 'bulk_AppIDs', 'value': appidsOwned}));
+                form.append($('<input>', {'type': 'hidden', 'name': 'bulk_IDs', 'value': appidsOwned}));
+                form.append($('<input>', {'type': 'hidden', 'name': 'userdata', 'value': 'on'}));
 
                 $('body').append(form);
 
